@@ -1,0 +1,571 @@
+---
+const faqs = [
+  {
+    question: '¿CercaSalud ya está disponible?',
+    answer: 'Estamos validando la propuesta y definiendo cómo funcionaría el servicio. En esta etapa, registrarte solo nos ayuda a conocer el interés y compartir novedades; todavía no activa monitoreo ni asistencia.',
+  },
+  {
+    question: '¿Cómo funcionaría una alerta?',
+    answer: 'La idea contempla dos vías: que la persona pida ayuda desde un reloj o que el sistema señale una posible situación para que alguien la revise. Una alerta sería un aviso para verificar, no un diagnóstico.',
+  },
+  {
+    question: '¿Qué pasa después de verificar?',
+    answer: 'Si el servicio llega a estar disponible y la situación lo requiere, se buscaría coordinar apoyo presencial en las zonas cubiertas. El proceso, la cobertura y los tiempos todavía deben definirse antes de ofrecer el servicio.',
+  },
+  {
+    question: '¿Reemplaza una enfermera o los servicios de emergencia?',
+    answer: 'No. CercaSalud se está pensando como apoyo ocasional y no reemplaza el cuidado continuo, una evaluación médica ni los servicios de emergencia.',
+  },
+  {
+    question: '¿Para qué usarán mis datos?',
+    answer: 'El formulario está pensado para conocer el interés y compartir información sobre la validación. No incluyas diagnósticos, medicamentos ni otros datos de salud. La política de privacidad y el canal para solicitar la eliminación de datos deben estar publicados antes de activar la recepción de registros.',
+  },
+];
+const privacyUrl = import.meta.env.PUBLIC_PRIVACY_URL;
+const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'true'
+  && import.meta.env.PUBLIC_PRIVACY_APPROVED === 'true'
+  && Boolean(privacyUrl);
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f3e8" />
+    <meta name="description" content="CercaSalud explora una forma de conectar alertas desde un reloj con verificación humana y apoyo ocasional para personas mayores." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <title>CercaSalud | Una forma de estar pendiente</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="wordmark" href="#inicio" aria-label="CercaSalud, inicio">
+        <span class="wordmark-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Cerca<span class="wordmark-light">Salud</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#para-quien">Para quién es</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <a class="button button-small button-dark header-cta" href="#interes">Conocer la propuesta <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Una idea en validación</p>
+          <h1 id="hero-title">Estar cerca,<br /><span>incluso a distancia.</span></h1>
+          <p class="hero-description">Una forma de conectar alertas desde un reloj con verificación humana y posible apoyo presencial para personas mayores.</p>
+          <div class="hero-actions">
+            <a class="button button-coral" href="#interes">Quiero conocer la propuesta <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#como-funciona">Así podría funcionar <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="availability-note">Estamos definiendo las zonas y la forma de atención. Aún no es un servicio activo.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-photo-wrap">
+            <img class="hero-photo" src="/images/familia-multigeneracional.jpeg" alt="Mujeres de distintas generaciones reunidas en familia" fetchpriority="high" width="1200" height="1800" />
+            <div class="photo-caption"><span class="caption-mark" aria-hidden="true">+</span><span>Más apoyo para la vida de todos los días</span></div>
+          </div>
+          <div class="hero-note" aria-label="La persona puede pedir ayuda o generar una alerta">
+            <span class="signal-icon" aria-hidden="true"><span></span></span>
+            <span><strong>Dos formas de alertar</strong><small>La persona o el dispositivo</small></span>
+          </div>
+          <span class="hero-sun" aria-hidden="true"></span>
+        </div>
+        <div class="hero-bottomline"><span>Una idea pensada para las familias</span><span class="scroll-cue">Desliza para descubrir <b aria-hidden="true">↓</b></span></div>
+      </section>
+
+      <section class="distance-section" id="para-quien" aria-labelledby="distance-title">
+        <div class="section-index"><span>01</span><span class="index-line"></span><span>La necesidad</span></div>
+        <div class="distance-grid">
+          <h2 id="distance-title">No siempre puedes estar ahí.<br /><em>Y eso no significa que no estés pendiente.</em></h2>
+          <div class="distance-copy">
+            <p>Entre el trabajo, la distancia y las responsabilidades de cada día, acompañar a alguien que quieres puede ser difícil. A veces no hace falta cuidado permanente; hace falta saber cómo actuar si algo ocurre.</p>
+            <p>CercaSalud explora ese punto intermedio: una manera sencilla de pedir ayuda y un equipo que pueda verificar una alerta cuando la familia no está cerca.</p>
+            <a class="underlined-link" href="#como-funciona">Conoce la idea <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+        <div class="reassurance-band"><span class="reassurance-symbol" aria-hidden="true">C</span><p>Una capa de apoyo ocasional, <strong>sin reemplazar la independencia</strong> de quien lleva el reloj.</p></div>
+      </section>
+
+      <section class="process-section" id="como-funciona" aria-labelledby="process-title">
+        <div class="process-heading">
+          <div class="section-index section-index-light"><span>02</span><span class="index-line"></span><span>La idea</span></div>
+          <h2 id="process-title">De la alerta<br />a una persona.</h2>
+          <p>Una alerta no es un diagnóstico. Es una señal para revisar qué está pasando.</p>
+        </div>
+        <div class="flow" aria-label="Posible funcionamiento del servicio en tres pasos">
+          <div class="flow-starts">
+              <div class="trigger trigger-manual"><span class="trigger-number">A</span><div><strong>La persona podría pedir ayuda</strong><small>Desde el reloj, si lo necesita.</small></div></div>
+              <div class="trigger trigger-auto"><span class="trigger-number">B</span><div><strong>El sistema podría dar una señal</strong><small>Una posible alerta para revisar.</small></div></div>
+          </div>
+          <div class="flow-join" aria-hidden="true"><span></span><i></i></div>
+          <div class="flow-step flow-human"><span class="step-number">01</span><div><h3>Una persona verificaría</h3><p>La propuesta contempla revisar la alerta y confirmar si hace falta apoyo.</p></div><span class="step-arrow" aria-hidden="true">↘</span></div>
+          <div class="flow-connector" aria-hidden="true"><span></span></div>
+          <div class="flow-step flow-response"><span class="step-number">02</span><div><h3>Se podría coordinar apoyo</h3><p>Si hace falta y está disponible en la zona, se buscaría coordinar una visita presencial.</p></div><span class="step-arrow" aria-hidden="true">↗</span></div>
+          <p class="flow-caveat">La cobertura, el proceso y los tiempos de respuesta todavía están por definirse.</p>
+        </div>
+        <div class="section-footnote"><span aria-hidden="true">*</span> Las alertas automáticas pueden señalar una posible situación, pero no confirman por sí solas una emergencia.</div>
+      </section>
+
+      <section class="benefits-section" aria-labelledby="benefits-title">
+        <div class="section-index"><span>03</span><span class="index-line"></span><span>Por qué podría ayudar</span></div>
+        <div class="benefits-heading"><h2 id="benefits-title">Una idea pequeña.<br /><span>Un respaldo importante.</span></h2><p>No se trata de vigilar cada momento. Se trata de tener un paso más claro cuando algo te preocupa.</p></div>
+        <div class="benefit-list">
+          <article class="benefit-row"><span class="benefit-mark mark-olive" aria-hidden="true">01</span><h3>Una forma de pedir ayuda</h3><p>La idea es que la persona pueda iniciar una alerta, sin depender solo de que alguien note un cambio.</p><span class="benefit-glyph" aria-hidden="true">↗</span></article>
+          <article class="benefit-row"><span class="benefit-mark mark-coral" aria-hidden="true">02</span><h3>Una señal para revisar</h3><p>Una posible anomalía podría invitar a verificar, no a sacar conclusiones médicas.</p><span class="benefit-glyph" aria-hidden="true">↗</span></article>
+          <article class="benefit-row"><span class="benefit-mark mark-green" aria-hidden="true">03</span><h3>El apoyo puede ser ocasional</h3><p>Una alternativa a pensar que la única opción es tener a alguien presente todo el día.</p><span class="benefit-glyph" aria-hidden="true">↗</span></article>
+        </div>
+      </section>
+
+      <section class="boundaries-section" aria-labelledby="boundaries-title">
+        <div class="boundaries-visual" role="img" aria-label="Ilustración abstracta de una señal que conecta a dos personas">
+          <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit-core"><i></i></span>
+          <span class="orbit-label orbit-label-top">PEDIR AYUDA</span><span class="orbit-label orbit-label-bottom">VERIFICAR</span>
+        </div>
+        <div class="boundaries-copy">
+          <div class="section-index"><span>04</span><span class="index-line"></span><span>Con claridad</span></div>
+          <h2 id="boundaries-title">Un apoyo más.<br /><em>No un reemplazo.</em></h2>
+          <p>CercaSalud está pensado como una capa de asistencia ocasional para familias y personas mayores. No es una enfermera permanente ni una sala de emergencias.</p>
+          <p class="boundaries-bold">No reemplaza los servicios de emergencia, una evaluación médica ni el cuidado continuo.</p>
+          <a class="text-link" href="#preguntas">Lee las preguntas frecuentes <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section class="faq-section" id="preguntas" aria-labelledby="faq-title">
+        <div class="faq-intro"><div class="section-index"><span>05</span><span class="index-line"></span><span>Lo que sabemos</span></div><h2 id="faq-title">Preguntas<br /><em>importantes.</em></h2><p>La propuesta sigue en validación. Preferimos decir con claridad qué falta por definir.</p></div>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary><span>{faq.question}</span><b aria-hidden="true"></b></summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section class="interest-section" id="interes" aria-labelledby="interest-title">
+        <div class="interest-topline"><span>06 / Mantente cerca</span><span class="interest-stamp" aria-hidden="true">CS</span></div>
+        <div class="interest-content">
+          <div class="interest-copy"><h2 id="interest-title">Ayúdanos a<br /><em>dar el primer paso.</em></h2><p>Cuéntanos en qué zona estás y cómo te gustaría recibir noticias. Estamos escuchando a familias antes de definir el piloto.</p><p class="interest-status"><span class="status-dot" aria-hidden="true"></span> Interés temprano, sin compromiso</p></div>
+          {interestFormEnabled ? (
+            <form class="interest-form" name="interes-cercasalud" method="POST" action="/gracias" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="interes-cercasalud" />
+              <div class="honeypot" hidden><label>No completar: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></div>
+              <div class="form-row"><label for="nombre">Tu nombre <span>*</span></label><input id="nombre" name="nombre" autocomplete="name" required /></div>
+              <fieldset class="contact-method">
+                <legend>¿Cómo prefieres que te contactemos? <span aria-hidden="true">*</span></legend>
+                <label><input type="radio" name="metodo" value="correo" checked /> Correo</label>
+                <label><input type="radio" name="metodo" value="whatsapp" /> WhatsApp</label>
+              </fieldset>
+              <div class="form-row contact-field" data-contact-field="correo"><label for="correo">Tu correo <span>*</span></label><input id="correo" type="email" name="correo" autocomplete="email" required /><small>Lo usaremos para compartir novedades sobre la propuesta.</small></div>
+              <div class="form-row contact-field" data-contact-field="whatsapp" hidden><label for="whatsapp">Tu número de WhatsApp <span>*</span></label><input id="whatsapp" type="tel" name="whatsapp" autocomplete="tel" inputmode="tel" disabled required /><small>Incluye el código de país para poder escribirte.</small></div>
+              <div class="form-row"><label for="zona">Ciudad y zona <span>*</span></label><input id="zona" name="zona" autocomplete="address-level2" placeholder="Ej. Valencia, zona norte" required /></div>
+              <div class="form-row"><label for="relacion">¿A quién acompañas? <span class="optional">Opcional</span></label><select id="relacion" name="relacion"><option value="">Selecciona una opción</option><option>Mi mamá o mi papá</option><option>Otro familiar</option><option>Una persona cercana</option><option>Prefiero conversarlo</option></select></div>
+              <label class="consent-row"><input type="checkbox" name="consentimiento" value="acepto" required /><span>Autorizo que CercaSalud me contacte sobre la validación de esta propuesta. No incluiré información médica. <span aria-hidden="true">*</span></span></label>
+              <p class="privacy-note">Lee nuestra <a href={privacyUrl}>política de privacidad</a> antes de enviar tus datos. Este formulario es solo para expresar interés, nunca para pedir ayuda urgente.</p>
+              <button class="button button-coral form-submit" type="submit">Quiero recibir novedades <span aria-hidden="true">↗</span></button>
+              <p class="form-footnote">Al enviar, tus datos se usarían para conocer el interés y compartir novedades. No envíes diagnósticos ni datos de salud.</p>
+              <p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </form>
+          ) : (
+            <div class="form-closed" role="status">
+              <span class="closed-mark" aria-hidden="true">+</span>
+              <h3>El registro está en preparación.</h3>
+              <p>Aún no estamos recibiendo datos. Antes de abrirlo publicaremos cómo se protegerá tu información y cómo podrás solicitar su eliminación.</p>
+              <p class="form-footnote">Esta página no atiende emergencias. No compartas información médica aquí.</p>
+            </div>
+          )}
+        </div>
+        <div class="interest-bottomline"><span>Una idea en desarrollo en Venezuela</span><a href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#inicio" aria-label="CercaSalud, volver al inicio"><span class="wordmark-icon" aria-hidden="true"><i></i><i></i><i></i></span><span>Cerca<span class="wordmark-light">Salud</span></span></a>
+      <p>Apoyo ocasional para estar más cerca.</p>
+      <span class="footer-note">No es un canal de emergencias.</span>
+      <span class="footer-copy">© CercaSalud 2026</span>
+    </footer>
+
+    <script>
+      const form = document.querySelector<HTMLFormElement>('.interest-form');
+
+      if (form) {
+        const status = form.querySelector<HTMLElement>('.form-status');
+        const submitButton = form.querySelector<HTMLButtonElement>('[type="submit"]');
+        const methodRadios = form.querySelectorAll<HTMLInputElement>('input[name="metodo"]');
+        const toggleContactField = () => {
+          const method = form.querySelector<HTMLInputElement>('input[name="metodo"]:checked')?.value ?? 'correo';
+
+          form.querySelectorAll<HTMLElement>('[data-contact-field]').forEach((field) => {
+            const active = field.dataset.contactField === method;
+            const input = field.querySelector<HTMLInputElement>('input');
+            field.hidden = !active;
+            if (input) {
+              input.disabled = !active;
+              input.required = active;
+            }
+          });
+        };
+
+        methodRadios.forEach((radio) => radio.addEventListener('change', toggleContactField));
+        toggleContactField();
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          if (!status || !submitButton) return;
+
+          submitButton.disabled = true;
+          status.textContent = 'Enviando…';
+          const payload = new URLSearchParams();
+          new FormData(form).forEach((value, key) => payload.append(key, value.toString()));
+
+          try {
+            const response = await fetch(form.action || window.location.pathname, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: payload.toString(),
+            });
+
+            if (!response.ok) throw new Error('Submission failed');
+
+            const confirmationPath = new URL(form.action, window.location.href).pathname.replace(/\/$/, '');
+            const responsePath = new URL(response.url).pathname.replace(/\/$/, '');
+            if (!response.redirected || responsePath !== confirmationPath) {
+              status.textContent = 'No pudimos confirmar si el registro quedó guardado. Para evitar un envío duplicado, no vuelvas a enviarlo por ahora.';
+              submitButton.disabled = true;
+              return;
+            }
+
+            form.reset();
+            toggleContactField();
+            status.textContent = 'Gracias por tu interés. Recibimos tus datos y los usaremos para compartir novedades sobre CercaSalud.';
+            submitButton.textContent = 'Registro recibido';
+          } catch {
+            status.textContent = 'No pudimos completar el envío. Revisa tu conexión e inténtalo de nuevo.';
+            submitButton.disabled = false;
+          }
+        });
+      }
+    </script>
+
+    <style>
+      :global(*) { box-sizing: border-box; }
+      :global(html) { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+      :global(body) { margin: 0; background: var(--paper); color: var(--ink); font-family: 'Atkinson Hyperlegible', sans-serif; font-size: 17px; line-height: 1.55; }
+      :global(:root) { --paper: #f6f3e8; --paper-deep: #ebe8d8; --ink: #173a2d; --ink-soft: #315746; --leaf: #a9bf38; --citron: #d7ec75; --coral: #e87955; --muted: #65796c; --line: rgba(23, 58, 45, .2); --display: 'Onest', sans-serif; }
+      :global(a) { color: inherit; }
+      :global(button), :global(input), :global(select) { font: inherit; }
+      :global(:focus-visible) { outline: 3px solid #e87955; outline-offset: 4px; }
+      .skip-link { position: absolute; z-index: 20; top: .5rem; left: .5rem; transform: translateY(-160%); padding: .8rem 1rem; background: var(--ink); color: var(--paper); }
+      .skip-link:focus { transform: translateY(0); }
+      .site-header { height: 82px; padding: 0 6.2vw; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; background: var(--paper); }
+      .wordmark { display: inline-flex; gap: .6rem; align-items: center; color: var(--ink); font: 800 1.23rem/1 var(--display); text-decoration: none; letter-spacing: 0; white-space: nowrap; }
+      .wordmark-light { color: #63814f; font-weight: 500; }
+      .wordmark-icon { width: 25px; height: 24px; display: inline-flex; align-items: center; justify-content: center; gap: 2px; transform: rotate(-28deg); }
+      .wordmark-icon i { display: block; width: 6px; border-radius: 6px; background: var(--coral); }
+      .wordmark-icon i:nth-child(1) { height: 12px; opacity: .7; }
+      .wordmark-icon i:nth-child(2) { height: 19px; }
+      .wordmark-icon i:nth-child(3) { height: 13px; opacity: .75; }
+      .desktop-nav { display: flex; align-items: center; gap: clamp(1.3rem, 3vw, 3.2rem); margin-left: auto; margin-right: 3rem; }
+      .desktop-nav a, .text-link, .underlined-link { text-decoration: none; font-weight: 700; font-size: .9rem; }
+      .desktop-nav a { transition: color .2s ease; }
+      .desktop-nav a:hover, .underlined-link:hover { color: #bd583b; }
+      .button { min-height: 54px; padding: .8rem 1.4rem; display: inline-flex; align-items: center; justify-content: center; gap: 1.3rem; border: 0; border-radius: 3px; color: var(--ink); font: 700 .9rem/1.2 var(--display); text-decoration: none; cursor: pointer; transition: background-color .18s ease, transform .18s ease; }
+      .button:hover { transform: translateY(-2px); }
+      .button-small { min-height: 44px; padding: .7rem 1rem; font-size: .83rem; }
+      .button-dark { background: var(--ink); color: var(--paper); }
+      .button-dark:hover { background: #28523f; }
+      .button-coral { background: var(--coral); color: #263d2e; }
+      .button-coral:hover { background: #ed8a67; }
+      .hero { position: relative; min-height: 676px; padding: 65px 6.2vw 84px; display: grid; grid-template-columns: minmax(0, .92fr) minmax(380px, 1.08fr); align-items: center; overflow: hidden; background: var(--paper); }
+      .hero-copy { position: relative; z-index: 2; max-width: 650px; padding: 12px 0 40px; }
+      .eyebrow, .section-index, .hero-bottomline, .interest-topline, .interest-bottomline { font: 700 .72rem/1.2 var(--display); letter-spacing: 0; }
+      .eyebrow { margin: 0 0 28px; display: flex; align-items: center; gap: .7rem; color: #50705d; text-transform: uppercase; }
+      .status-dot { width: 9px; height: 9px; display: inline-block; flex: 0 0 auto; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 4px rgba(232, 121, 85, .16); }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-family: var(--display); }
+      .hero h1 { max-width: 740px; margin: 0 0 23px; font-size: clamp(3.2rem, 6vw, 6.45rem); line-height: .99; font-weight: 700; letter-spacing: 0; }
+      .hero h1 span { color: #738a36; font-weight: 500; }
+      .hero-description { max-width: 480px; margin-bottom: 30px; color: #456354; font-size: 1.13rem; line-height: 1.53; }
+      .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.4rem; }
+      .text-link { display: inline-flex; align-items: center; gap: .7rem; color: var(--ink); }
+      .availability-note { max-width: 430px; margin: 19px 0 0; color: #6b796e; font-size: .79rem; }
+      .hero-visual { position: relative; min-height: 525px; display: grid; place-items: center; }
+      .hero-photo-wrap { position: relative; width: min(81%, 465px); height: 498px; margin: 0 3% 0 auto; z-index: 1; background: var(--leaf); transform: rotate(2deg); }
+      .hero-photo { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 56%; filter: saturate(.83); }
+      .photo-caption { position: absolute; bottom: 17px; left: -22px; max-width: 260px; padding: 13px 15px; display: flex; align-items: center; gap: 11px; background: var(--paper); color: var(--ink); font: 600 .77rem/1.3 var(--display); transform: rotate(-2deg); box-shadow: 0 8px 26px rgba(23,58,45,.11); }
+      .caption-mark { width: 23px; height: 23px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; background: var(--leaf); font: 600 1rem/1 var(--display); }
+      .hero-note { position: absolute; top: 16%; left: -2%; z-index: 2; max-width: 220px; padding: 13px 16px; display: flex; align-items: center; gap: 12px; background: var(--citron); color: var(--ink); box-shadow: 0 10px 24px rgba(23,58,45,.1); transform: rotate(-3deg); }
+      .hero-note strong, .hero-note small { display: block; }
+      .hero-note strong { font: 700 .78rem/1.25 var(--display); }
+      .hero-note small { margin-top: 3px; font-size: .7rem; }
+      .signal-icon { width: 27px; height: 27px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid var(--ink); border-radius: 50%; }
+      .signal-icon span { width: 9px; height: 9px; border-radius: 50%; background: var(--coral); }
+      .hero-sun { position: absolute; top: 2%; right: 0; width: 155px; height: 155px; border-radius: 50%; background: var(--citron); }
+      .hero-bottomline { position: absolute; right: 6.2vw; bottom: 27px; left: 6.2vw; display: flex; justify-content: space-between; align-items: center; color: #66776a; text-transform: uppercase; }
+      .scroll-cue { display: inline-flex; gap: 10px; align-items: center; }
+      .scroll-cue b { color: var(--coral); font-size: 1.25rem; }
+      .distance-section { padding: 115px 10vw 100px; background: #ebe8d8; }
+      .section-index { display: flex; align-items: center; gap: 12px; color: #617767; text-transform: uppercase; }
+      .section-index > span:first-child { color: #bd634a; }
+      .index-line { width: 44px; height: 1px; background: #92a18d; }
+      .distance-grid { margin: 46px 0 69px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 7vw; align-items: start; }
+      .distance-grid h2, .benefits-heading h2, .boundaries-copy h2, .faq-intro h2, .interest-copy h2 { margin: 0; color: var(--ink); font-size: clamp(2.45rem, 4.8vw, 4.75rem); line-height: 1.06; letter-spacing: 0; font-weight: 650; }
+      .distance-grid h2 em, .boundaries-copy h2 em, .faq-intro h2 em, .interest-copy h2 em { color: #768c42; font-style: normal; font-weight: 500; }
+      .distance-copy { padding-top: 7px; color: #415f4f; }
+      .distance-copy p { margin-bottom: 18px; }
+      .underlined-link { display: inline-flex; gap: .8rem; align-items: center; margin-top: 5px; padding-bottom: 6px; border-bottom: 1px solid #81927b; }
+      .reassurance-band { min-height: 116px; padding: 23px 4vw; display: flex; align-items: center; gap: 25px; background: var(--leaf); }
+      .reassurance-symbol { width: 55px; height: 55px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(23,58,45,.55); border-radius: 50%; font: 700 1.5rem/1 var(--display); }
+      .reassurance-band p { max-width: 750px; margin: 0; font: 500 clamp(1.15rem, 2.2vw, 1.8rem)/1.35 var(--display); }
+      .process-section { position: relative; padding: 106px 10vw 39px; background: var(--ink); color: var(--paper); overflow: hidden; }
+      .process-section::after { position: absolute; content: ''; width: 480px; height: 480px; right: -210px; top: -260px; border: 1px solid rgba(215,236,117,.25); border-radius: 50%; box-shadow: 0 0 0 34px rgba(215,236,117,.035), 0 0 0 70px rgba(215,236,117,.025); pointer-events: none; }
+      .section-index-light { color: #b7c8b7; }
+      .section-index-light .index-line { background: #789080; }
+      .process-heading { position: relative; z-index: 1; max-width: 620px; }
+      .process-heading h2 { margin: 40px 0 16px; font-size: clamp(3.2rem, 6.1vw, 6rem); line-height: .98; letter-spacing: 0; font-weight: 650; }
+      .process-heading > p { max-width: 400px; margin-bottom: 0; color: #c1d0c0; font-size: 1.05rem; }
+      .flow { position: relative; max-width: 1040px; margin: 65px auto 0; display: grid; grid-template-columns: minmax(190px, .75fr) 78px minmax(225px, 1fr) 78px minmax(230px, 1fr); align-items: center; }
+      .flow-starts { display: grid; gap: 16px; }
+      .trigger { min-height: 89px; padding: 13px 14px; display: flex; align-items: center; gap: 12px; color: var(--ink); }
+      .trigger-manual { background: var(--citron); }
+      .trigger-auto { background: #df896c; }
+      .trigger-number { width: 31px; height: 31px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(23,58,45,.45); border-radius: 50%; font: 600 .78rem var(--display); }
+      .trigger strong, .trigger small { display: block; }
+      .trigger strong { font: 700 .82rem/1.3 var(--display); }
+      .trigger small { margin-top: 4px; font-size: .71rem; line-height: 1.3; }
+      .flow-join { height: 146px; display: flex; justify-content: center; align-items: center; position: relative; }
+      .flow-join span { width: 40px; height: 90%; border: 1px solid rgba(215,236,117,.65); border-left: 0; border-radius: 0 36px 36px 0; }
+      .flow-join i { position: absolute; right: 0; width: 9px; height: 9px; border-top: 1px solid var(--citron); border-right: 1px solid var(--citron); transform: rotate(45deg); }
+      .flow-step { position: relative; min-height: 205px; padding: 23px 21px; display: flex; flex-direction: column; justify-content: space-between; }
+      .flow-human { background: #d7ec75; color: var(--ink); }
+      .flow-response { border: 1px solid rgba(215,236,117,.55); color: var(--paper); }
+      .step-number { font: 700 .7rem var(--display); color: #708638; }
+      .flow-response .step-number { color: var(--citron); }
+      .flow-step h3 { margin: 24px 0 8px; font-size: 1.35rem; line-height: 1.18; letter-spacing: 0; }
+      .flow-step p { max-width: 220px; margin: 0; font-size: .85rem; line-height: 1.45; }
+      .step-arrow { position: absolute; top: 20px; right: 20px; font-size: 1.3rem; }
+      .flow-connector { height: 1px; position: relative; background: rgba(215,236,117,.55); }
+      .flow-connector::after { position: absolute; right: 1px; top: -4px; width: 8px; height: 8px; content: ''; border-top: 1px solid var(--citron); border-right: 1px solid var(--citron); transform: rotate(45deg); }
+      .flow-caveat { grid-column: 3 / 6; margin: 13px 0 0; color: #bbccbc; font-size: .75rem; }
+      .section-footnote { max-width: 1040px; margin: 70px auto 0; padding: 19px 0 0; border-top: 1px solid rgba(246,243,232,.23); color: #b8c8b8; font-size: .78rem; }
+      .section-footnote span { margin-right: 8px; color: var(--citron); }
+      .benefits-section { padding: 113px 10vw 125px; background: var(--paper); }
+      .benefits-heading { margin: 46px 0 72px; display: flex; align-items: end; justify-content: space-between; gap: 3rem; }
+      .benefits-heading h2 span { color: #788e41; font-weight: 500; }
+      .benefits-heading p { max-width: 320px; margin: 0 2vw 8px 0; color: #566d5e; }
+      .benefit-list { border-top: 1px solid var(--line); }
+      .benefit-row { min-height: 128px; display: grid; grid-template-columns: 64px minmax(240px, .9fr) minmax(230px, .8fr) 38px; gap: 2.2rem; align-items: center; border-bottom: 1px solid var(--line); }
+      .benefit-mark { width: 47px; height: 47px; display: grid; place-items: center; border-radius: 50%; font: 700 .75rem var(--display); }
+      .mark-olive { background: var(--citron); }
+      .mark-coral { background: #e89a77; }
+      .mark-green { background: var(--leaf); }
+      .benefit-row h3 { max-width: 330px; margin: 0; font-size: 1.25rem; line-height: 1.25; letter-spacing: 0; }
+      .benefit-row p { max-width: 340px; margin: 0; color: #5e7264; font-size: .88rem; }
+      .benefit-glyph { justify-self: end; color: #758b3e; font-size: 1.25rem; }
+      .boundaries-section { padding: 74px 10vw 100px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 11vw; background: #e5e9d8; }
+      .boundaries-visual { min-height: 420px; position: relative; display: grid; place-items: center; overflow: hidden; background: #b5c777; }
+      .orbit { position: absolute; display: block; border: 1px solid rgba(23,58,45,.55); border-radius: 50%; transform: rotate(-27deg); }
+      .orbit-one { width: 280px; height: 120px; }
+      .orbit-two { width: 345px; height: 185px; transform: rotate(52deg); }
+      .orbit-core { width: 105px; height: 105px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); }
+      .orbit-core i { width: 23px; height: 23px; display: block; border: 2px solid var(--ink); border-radius: 50%; }
+      .orbit-label { position: absolute; padding: 6px 9px; background: #e5e9d8; color: var(--ink); font: 700 .6rem var(--display); letter-spacing: 0; }
+      .orbit-label-top { top: 27%; left: 15%; }
+      .orbit-label-bottom { right: 12%; bottom: 24%; }
+      .boundaries-copy { max-width: 540px; }
+      .boundaries-copy h2 { margin: 42px 0 24px; }
+      .boundaries-copy > p { color: #4a6656; }
+      .boundaries-copy .boundaries-bold { max-width: 470px; margin: 28px 0 25px; padding: 15px 0; border-top: 1px solid rgba(23,58,45,.3); border-bottom: 1px solid rgba(23,58,45,.3); color: var(--ink); font-weight: 700; }
+      .faq-section { padding: 118px 10vw 130px; display: grid; grid-template-columns: .72fr 1.28fr; gap: 9vw; background: var(--paper); }
+      .faq-intro h2 { margin: 42px 0 23px; }
+      .faq-intro > p { max-width: 320px; color: #5e7264; }
+      .faq-list { border-top: 1px solid var(--line); }
+      .faq-item { border-bottom: 1px solid var(--line); }
+      .faq-item summary { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 20px; cursor: pointer; list-style: none; font: 600 1rem/1.35 var(--display); }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary b { width: 24px; height: 24px; position: relative; flex: 0 0 auto; border: 1px solid #718777; border-radius: 50%; }
+      .faq-item summary b::before, .faq-item summary b::after { position: absolute; top: 10px; left: 6px; width: 10px; height: 1px; content: ''; background: var(--ink); }
+      .faq-item summary b::after { transform: rotate(90deg); transition: transform .18s ease; }
+      .faq-item[open] summary b::after { transform: rotate(0); }
+      .faq-item > p { max-width: 600px; margin: -2px 38px 23px 0; color: #5b7061; font-size: .9rem; }
+      .interest-section { padding: 28px 6.2vw 22px; background: var(--citron); }
+      .interest-topline, .interest-bottomline { display: flex; align-items: center; justify-content: space-between; text-transform: uppercase; }
+      .interest-topline { min-height: 50px; border-bottom: 1px solid rgba(23,58,45,.35); }
+      .interest-stamp { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(23,58,45,.5); border-radius: 50%; font: 700 .67rem var(--display); }
+      .interest-content { padding: 79px 4vw 85px; display: grid; grid-template-columns: 1fr .8fr; gap: 10vw; align-items: start; }
+      .interest-copy { position: sticky; top: 30px; }
+      .interest-copy h2 { max-width: 620px; margin-bottom: 23px; font-size: clamp(3rem, 5.3vw, 5.2rem); }
+      .interest-copy h2 em { color: #586e30; }
+      .interest-copy > p { max-width: 440px; color: #395844; }
+      .interest-status { margin-top: 34px; display: flex; align-items: center; gap: 11px; font: 700 .75rem var(--display); }
+      .interest-status .status-dot { width: 8px; height: 8px; }
+      .interest-form { max-width: 505px; padding-top: 7px; }
+      .honeypot { position: absolute; left: -9999px; }
+      .form-row { margin-bottom: 21px; }
+      .form-row label { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: 8px; font: 700 .8rem var(--display); }
+      .form-row label > span:first-child { color: #af5036; }
+      .form-row .optional { color: #5c755f; font: 400 .72rem 'Atkinson Hyperlegible', sans-serif; }
+      .form-row input, .form-row select { width: 100%; min-height: 48px; padding: 9px 10px; border: 0; border-bottom: 1px solid rgba(23,58,45,.55); border-radius: 0; background: transparent; color: var(--ink); }
+      .form-row input::placeholder { color: #6f826e; }
+      .form-row select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #173a2d 50%), linear-gradient(135deg, #173a2d 50%, transparent 50%); background-position: calc(100% - 13px) 20px, calc(100% - 8px) 20px; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+      .form-row small { display: block; margin-top: 7px; color: #5c755f; font-size: .72rem; }
+      .consent-row { margin: 25px 0 13px; display: flex; align-items: flex-start; gap: 11px; color: #365341; font-size: .77rem; line-height: 1.45; cursor: pointer; }
+      .consent-row input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--ink); flex: 0 0 auto; }
+      .consent-row span span { color: #a94d34; }
+      .privacy-note { margin: 13px 0 19px; padding: 11px 12px; border: 1px solid rgba(23,58,45,.35); color: #425c4a; font-size: .72rem; line-height: 1.45; }
+      .form-submit { width: 100%; min-height: 56px; justify-content: space-between; padding-inline: 16px; }
+      .form-submit:disabled { cursor: wait; opacity: .7; transform: none; }
+      .form-footnote { margin: 11px 0 0; color: #607560; font-size: .69rem; }
+      .interest-bottomline { min-height: 50px; border-top: 1px solid rgba(23,58,45,.35); font-size: .66rem; }
+      .interest-bottomline a { text-decoration: none; }
+      .interest-bottomline a span { margin-left: 7px; }
+      .site-footer { min-height: 100px; padding: 25px 6.2vw; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--ink); color: var(--paper); }
+      .site-footer .wordmark { color: var(--paper); }
+      .site-footer .wordmark-light { color: #c7d27b; }
+      .site-footer .wordmark-icon i { background: var(--citron); }
+      .site-footer p, .footer-note, .footer-copy { margin: 0; color: #bdc9bc; font-size: .75rem; }
+      @media (max-width: 950px) {
+        .site-header { padding-inline: 4vw; }
+        .desktop-nav { gap: 1.1rem; margin-right: 1.2rem; }
+        .hero { padding-inline: 5vw; grid-template-columns: 1fr .86fr; }
+        .hero h1 { font-size: clamp(3.3rem, 7vw, 5.3rem); }
+        .hero-visual { min-height: 450px; }
+        .hero-photo-wrap { height: 430px; width: 86%; }
+        .hero-note { left: -5%; }
+        .distance-section, .process-section, .benefits-section, .boundaries-section, .faq-section { padding-inline: 7vw; }
+        .flow { grid-template-columns: minmax(150px, .75fr) 48px minmax(190px, 1fr) 48px minmax(190px, 1fr); }
+        .trigger { padding-inline: 10px; }
+        .benefit-row { gap: 1.2rem; }
+        .boundaries-section { gap: 7vw; }
+        .boundaries-visual { min-height: 360px; }
+        .faq-section { gap: 6vw; }
+      }
+      @media (max-width: 700px) {
+        :global(body) { font-size: 16px; }
+        :global(html) { scroll-padding-top: 5rem; }
+        .site-header { height: 68px; padding-inline: 20px; gap: .75rem; }
+        .desktop-nav { display: none; }
+        .wordmark { font-size: 1.08rem; }
+        .wordmark-icon { transform: scale(.9) rotate(-28deg); }
+        .button-small { min-height: 39px; padding: .55rem .65rem; font-size: .73rem; gap: .5rem; }
+        .hero { min-height: unset; padding: 49px 20px 72px; display: flex; flex-direction: column; align-items: stretch; }
+        .hero-copy { padding: 0; }
+        .eyebrow { margin-bottom: 22px; font-size: .65rem; }
+        .hero h1 { margin-bottom: 18px; font-size: clamp(3rem, 12vw, 4.2rem); line-height: 1; letter-spacing: 0; }
+        .hero-description { max-width: 470px; margin-bottom: 22px; font-size: 1.02rem; }
+        .hero-actions { align-items: flex-start; gap: 15px 22px; }
+        .hero-actions .button { width: 100%; justify-content: space-between; }
+        .availability-note { margin-top: 13px; font-size: .72rem; }
+        .hero-visual { min-height: 395px; margin-top: 18px; }
+        .hero-photo-wrap { width: 78%; height: 376px; margin-right: 4%; }
+        .hero-photo { object-position: center 55%; }
+        .hero-note { top: 10%; left: -1%; max-width: 190px; padding: 10px; }
+        .hero-sun { top: 3%; right: -18px; width: 105px; height: 105px; }
+        .photo-caption { bottom: 14px; left: -17px; max-width: 220px; font-size: .7rem; }
+        .hero-bottomline { right: 20px; bottom: 20px; left: 20px; font-size: .57rem; }
+        .scroll-cue { gap: 6px; }
+        .distance-section { padding: 72px 22px 65px; }
+        .section-index { font-size: .63rem; }
+        .index-line { width: 30px; }
+        .distance-grid { margin: 35px 0 41px; grid-template-columns: 1fr; gap: 22px; }
+        .distance-grid h2, .benefits-heading h2, .boundaries-copy h2, .faq-intro h2 { font-size: clamp(2.45rem, 10.5vw, 3.55rem); }
+        .distance-grid h2 br { display: none; }
+        .distance-grid h2 em { display: inline; }
+        .distance-copy { padding: 0; font-size: .96rem; }
+        .reassurance-band { min-height: 99px; padding: 18px; gap: 16px; }
+        .reassurance-symbol { width: 42px; height: 42px; font-size: 1.2rem; }
+        .reassurance-band p { font-size: 1.05rem; }
+        .process-section { padding: 75px 22px 31px; }
+        .process-heading h2 { margin: 33px 0 15px; font-size: clamp(3rem, 12vw, 4.4rem); }
+        .process-heading > p { font-size: .95rem; }
+        .flow { margin-top: 39px; display: flex; flex-direction: column; align-items: stretch; }
+        .flow-starts { grid-template-columns: 1fr; gap: 10px; }
+        .trigger { min-height: 72px; padding: 11px 13px; }
+        .flow-join { width: 40px; height: 48px; margin: 0 auto; transform: rotate(90deg); }
+        .flow-join span { width: 32px; height: 90%; }
+        .flow-step { min-height: 175px; padding: 19px; }
+        .flow-step h3 { margin: 17px 0 6px; }
+        .flow-connector { width: 1px; height: 39px; align-self: center; }
+        .flow-connector::after { top: auto; right: -4px; bottom: 0; transform: rotate(135deg); }
+        .flow-caveat { margin: 13px 0 0; font-size: .73rem; }
+        .section-footnote { margin-top: 48px; font-size: .72rem; }
+        .benefits-section { padding: 74px 22px 78px; }
+        .benefits-heading { margin: 35px 0 37px; display: block; }
+        .benefits-heading h2 { margin-bottom: 18px; }
+        .benefits-heading p { max-width: 410px; font-size: .95rem; }
+        .benefit-row { position: relative; min-height: 0; padding: 22px 24px 22px 0; grid-template-columns: 42px 1fr; gap: 7px 15px; align-items: start; }
+        .benefit-mark { width: 38px; height: 38px; grid-row: span 2; font-size: .67rem; }
+        .benefit-row h3 { padding-right: 14px; font-size: 1.1rem; }
+        .benefit-row p { font-size: .85rem; }
+        .benefit-glyph { position: absolute; top: 24px; right: 0; font-size: 1rem; }
+        .boundaries-section { padding: 33px 22px 72px; grid-template-columns: 1fr; gap: 38px; }
+        .boundaries-visual { min-height: 300px; }
+        .orbit-one { width: 240px; height: 100px; }
+        .orbit-two { width: 290px; height: 150px; }
+        .boundaries-copy h2 { margin: 34px 0 19px; }
+        .faq-section { padding: 75px 22px 80px; grid-template-columns: 1fr; gap: 36px; }
+        .faq-intro h2 { margin: 35px 0 18px; }
+        .faq-intro > p { max-width: 440px; font-size: .94rem; }
+        .faq-item summary { min-height: 68px; font-size: .92rem; }
+        .faq-item > p { margin-right: 22px; font-size: .86rem; }
+        .interest-section { padding: 17px 20px 16px; }
+        .interest-topline { min-height: 43px; font-size: .64rem; }
+        .interest-stamp { width: 29px; height: 29px; font-size: .58rem; }
+        .interest-content { padding: 53px 2px 54px; grid-template-columns: 1fr; gap: 24px; }
+        .interest-copy { position: static; }
+        .interest-copy h2 { margin-bottom: 18px; font-size: clamp(2.9rem, 11vw, 4rem); }
+        .interest-copy > p { font-size: .94rem; }
+        .interest-status { margin-top: 22px; }
+        .interest-form { padding-top: 0; }
+        .form-row { margin-bottom: 18px; }
+        .consent-row { font-size: .75rem; }
+        .interest-bottomline { min-height: 46px; gap: 1rem; font-size: .57rem; }
+        .site-footer { padding: 23px 20px; display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+        .site-footer p { grid-column: 1; font-size: .69rem; }
+        .footer-note { grid-column: 2; grid-row: 1; text-align: right; font-size: .68rem; }
+        .footer-copy { grid-column: 2; grid-row: 2; text-align: right; font-size: .66rem; }
+      }
+      @media (max-width: 360px) {
+        .site-header { padding-inline: 15px; }
+        .header-cta { font-size: .66rem; }
+        .hero { padding-inline: 17px; }
+        .hero h1 { font-size: 2.82rem; }
+        .hero-visual { min-height: 340px; }
+        .hero-photo-wrap { height: 325px; }
+        .hero-note { max-width: 170px; }
+        .hero-note strong { font-size: .7rem; }
+        .hero-note small { font-size: .64rem; }
+        .hero-bottomline { left: 17px; right: 17px; font-size: .52rem; }
+        .distance-section, .process-section, .benefits-section, .boundaries-section, .faq-section { padding-inline: 17px; }
+        .distance-grid h2, .benefits-heading h2, .boundaries-copy h2, .faq-intro h2 { font-size: 2.35rem; }
+        .interest-copy h2 { font-size: 2.7rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        :global(html) { scroll-behavior: auto; }
+        *, *::before, *::after { transition-duration: .01ms !important; }
+      }
+      .form-closed { max-width: 505px; padding: 28px 25px; border: 1px solid rgba(23,58,45,.4); background: rgba(246,243,232,.28); }
+      .closed-mark { width: 35px; height: 35px; margin-bottom: 20px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font: 500 1.3rem/1 var(--display); }
+      .form-closed h3 { margin-bottom: 10px; font-size: 1.15rem; }
+      .form-closed p { margin-bottom: 14px; color: #425c4a; font-size: .88rem; }
+      .form-closed .form-footnote { margin-bottom: 0; font-size: .72rem; }
+      .contact-method { margin: 0 0 20px; padding: 0; border: 0; }
+      .contact-method legend { margin-bottom: 10px; font: 700 .8rem var(--display); }
+      .contact-method legend span { color: #af5036; }
+      .contact-method label { margin-right: 17px; display: inline-flex; align-items: center; gap: 7px; font-size: .84rem; cursor: pointer; }
+      .contact-method input { width: 17px; height: 17px; accent-color: var(--ink); }
+      .contact-field[hidden] { display: none; }
+      .form-status:empty { display: none; }
+      .form-status { margin-top: 15px; padding: 11px 12px; background: rgba(246,243,232,.55); color: var(--ink); font-size: .83rem; }
+      .button-coral { background: var(--coral); color: #10281e; }
+    </style>
+  </body>
+</html>

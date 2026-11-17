@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f3e8" />
+    <title>Gracias | CercaSalud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <a class="wordmark" href="/" aria-label="CercaSalud, inicio"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Cerca<span>Salud</span></span></a>
+      <p class="eyebrow">CercaSalud / Interés recibido</p>
+      <h1>Gracias por<br /><em>estar cerca.</em></h1>
+      <p class="message">Gracias por acercarte a CercaSalud. Si llegaste después de completar el formulario, tu interés quedó registrado. Compartiremos novedades cuando haya información confirmada.</p>
+      <p class="notice">Este sitio no atiende emergencias ni activa un servicio de monitoreo.</p>
+      <a class="return-link" href="/">Volver a CercaSalud <span aria-hidden="true">↗</span></a>
+    </main>
+    <style>
+      :global(*) { box-sizing: border-box; }
+      :global(body) { min-height: 100vh; margin: 0; padding: 28px; display: grid; place-items: center; background: #f6f3e8; color: #173a2d; font: 17px/1.55 'Atkinson Hyperlegible', sans-serif; }
+      :global(:focus-visible) { outline: 3px solid #e87955; outline-offset: 4px; }
+      main { width: min(100%, 760px); padding: clamp(30px, 8vw, 90px); background: #d7ec75; }
+      .wordmark { display: inline-flex; align-items: center; gap: 10px; color: #173a2d; font: 800 1.15rem/1 'Onest', sans-serif; text-decoration: none; }
+      .wordmark > span:last-child > span { color: #647a37; font-weight: 500; }
+      .mark { display: flex; align-items: center; gap: 2px; transform: rotate(-28deg); }
+      .mark i { width: 5px; height: 14px; border-radius: 5px; background: #e87955; }
+      .mark i:nth-child(2) { height: 20px; }
+      .eyebrow { margin: 85px 0 20px; color: #536d46; font: 700 .72rem 'Onest', sans-serif; text-transform: uppercase; }
+      h1 { margin: 0 0 24px; font: 700 clamp(3.5rem, 10vw, 6.5rem)/.98 'Onest', sans-serif; }
+      h1 em { color: #708638; font-style: normal; font-weight: 500; }
+      .message { max-width: 470px; font-size: 1.1rem; }
+      .notice { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(23,58,45,.35); font-weight: 700; }
+      .return-link { margin-top: 20px; display: inline-flex; gap: 12px; color: #173a2d; font-weight: 700; }
+    </style>
+  </body>
+</html>

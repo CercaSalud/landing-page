@@ -90,6 +90,16 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
             <a class="underlined-link" href="#como-funciona">Conoce la idea <span aria-hidden="true">↘</span></a>
           </div>
         </div>
+        <div class="distance-photos" aria-label="Momentos de la vida cotidiana de las personas mayores y sus familias">
+          <figure class="distance-photo distance-photo-main">
+            <div class="photo-frame"><img src="/images/familia-en-casa.jpeg" alt="Una pareja mayor sonríe sentada en una sala luminosa y colorida" width="1200" height="675" loading="lazy" decoding="async" /></div>
+            <figcaption>Compartir tiempo también es parte de acompañarse.</figcaption>
+          </figure>
+          <figure class="distance-photo distance-photo-secondary">
+            <div class="photo-frame"><img src="/images/persona-mayor-en-casa.jpeg" alt="Una mujer mayor lee en su sala mientras acaricia a su perro" width="1200" height="800" loading="lazy" decoding="async" /></div>
+            <figcaption>Sus rutinas y su independencia siguen siendo propias.</figcaption>
+          </figure>
+        </div>
         <div class="reassurance-band"><span class="reassurance-symbol" aria-hidden="true">C</span><p>Una capa de apoyo ocasional, <strong>sin reemplazar la independencia</strong> de quien lleva el reloj.</p></div>
       </section>
 
@@ -124,10 +134,10 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
       </section>
 
       <section class="boundaries-section" aria-labelledby="boundaries-title">
-        <div class="boundaries-visual" role="img" aria-label="Ilustración abstracta de una señal que conecta a dos personas">
-          <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orbit-core"><i></i></span>
-          <span class="orbit-label orbit-label-top">PEDIR AYUDA</span><span class="orbit-label orbit-label-bottom">VERIFICAR</span>
-        </div>
+        <figure class="boundaries-photo">
+          <div class="photo-frame"><img src="/images/apoyo-familiar.jpeg" alt="Una mujer adulta abraza a una mujer mayor sentadas juntas en un sofá" width="1200" height="1800" loading="lazy" decoding="async" /></div>
+          <figcaption>Un apoyo más, sin reemplazar el vínculo de cada día.</figcaption>
+        </figure>
         <div class="boundaries-copy">
           <div class="section-index"><span>04</span><span class="index-line"></span><span>Con claridad</span></div>
           <h2 id="boundaries-title">Un apoyo más.<br /><em>No un reemplazo.</em></h2>
@@ -321,6 +331,11 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
       .distance-grid h2 em, .boundaries-copy h2 em, .faq-intro h2 em, .interest-copy h2 em { color: #768c42; font-style: normal; font-weight: 500; }
       .distance-copy { padding-top: 7px; color: #415f4f; }
       .distance-copy p { margin-bottom: 18px; }
+      .distance-photos { margin: 0 0 69px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2.5rem); }
+      .distance-photo { min-width: 0; margin: 0; }
+      .photo-frame { aspect-ratio: 4 / 3; overflow: hidden; background: var(--paper-deep); }
+      .photo-frame img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; filter: saturate(.9); }
+      .distance-photo figcaption { max-width: 38ch; margin-top: 11px; color: #526b5b; font: 600 .76rem/1.45 var(--display); }
       .underlined-link { display: inline-flex; gap: .8rem; align-items: center; margin-top: 5px; padding-bottom: 6px; border-bottom: 1px solid #81927b; }
       .reassurance-band { min-height: 116px; padding: 23px 4vw; display: flex; align-items: center; gap: 25px; background: var(--leaf); }
       .reassurance-symbol { width: 55px; height: 55px; display: grid; place-items: center; flex: 0 0 auto; border: 1px solid rgba(23,58,45,.55); border-radius: 50%; font: 700 1.5rem/1 var(--display); }
@@ -370,16 +385,10 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
       .benefit-row h3 { max-width: 330px; margin: 0; font-size: 1.25rem; line-height: 1.25; letter-spacing: 0; }
       .benefit-row p { max-width: 340px; margin: 0; color: #5e7264; font-size: .88rem; }
       .benefit-glyph { justify-self: end; color: #758b3e; font-size: 1.25rem; }
-      .boundaries-section { padding: 74px 10vw 100px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 11vw; background: #e5e9d8; }
-      .boundaries-visual { min-height: 420px; position: relative; display: grid; place-items: center; overflow: hidden; background: #b5c777; }
-      .orbit { position: absolute; display: block; border: 1px solid rgba(23,58,45,.55); border-radius: 50%; transform: rotate(-27deg); }
-      .orbit-one { width: 280px; height: 120px; }
-      .orbit-two { width: 345px; height: 185px; transform: rotate(52deg); }
-      .orbit-core { width: 105px; height: 105px; display: grid; place-items: center; border-radius: 50%; background: var(--coral); }
-      .orbit-core i { width: 23px; height: 23px; display: block; border: 2px solid var(--ink); border-radius: 50%; }
-      .orbit-label { position: absolute; padding: 6px 9px; background: #e5e9d8; color: var(--ink); font: 700 .6rem var(--display); letter-spacing: 0; }
-      .orbit-label-top { top: 27%; left: 15%; }
-      .orbit-label-bottom { right: 12%; bottom: 24%; }
+      .boundaries-section { padding: 74px 10vw 100px; display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: 8vw; background: #e5e9d8; }
+      .boundaries-photo { min-width: 0; margin: 0; }
+      .boundaries-photo .photo-frame img { object-position: center 42%; }
+      .boundaries-photo figcaption { margin-top: 11px; color: #526b5b; font: 600 .76rem/1.45 var(--display); }
       .boundaries-copy { max-width: 540px; }
       .boundaries-copy h2 { margin: 42px 0 24px; }
       .boundaries-copy > p { color: #4a6656; }
@@ -445,7 +454,6 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
         .trigger { padding-inline: 10px; }
         .benefit-row { gap: 1.2rem; }
         .boundaries-section { gap: 7vw; }
-        .boundaries-visual { min-height: 360px; }
         .faq-section { gap: 6vw; }
       }
       @media (max-width: 700px) {
@@ -480,6 +488,8 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
         .distance-grid h2 br { display: none; }
         .distance-grid h2 em { display: inline; }
         .distance-copy { padding: 0; font-size: .96rem; }
+        .distance-photos { margin-bottom: 41px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+        .distance-photo figcaption { margin-top: 8px; font-size: .68rem; }
         .reassurance-band { min-height: 99px; padding: 18px; gap: 16px; }
         .reassurance-symbol { width: 42px; height: 42px; font-size: 1.2rem; }
         .reassurance-band p { font-size: 1.05rem; }
@@ -507,9 +517,7 @@ const interestFormEnabled = import.meta.env.PUBLIC_ENABLE_INTEREST_FORM === 'tru
         .benefit-row p { font-size: .85rem; }
         .benefit-glyph { position: absolute; top: 24px; right: 0; font-size: 1rem; }
         .boundaries-section { padding: 33px 22px 72px; grid-template-columns: 1fr; gap: 38px; }
-        .boundaries-visual { min-height: 300px; }
-        .orbit-one { width: 240px; height: 100px; }
-        .orbit-two { width: 290px; height: 150px; }
+        .boundaries-photo { order: 1; }
         .boundaries-copy h2 { margin: 34px 0 19px; }
         .faq-section { padding: 75px 22px 80px; grid-template-columns: 1fr; gap: 36px; }
         .faq-intro h2 { margin: 35px 0 18px; }

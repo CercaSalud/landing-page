@@ -40,3 +40,7 @@ The included `netlify.toml` builds the static site to `dist/`. Deploy the `landi
 ## Hero image
 
 The local family image is sourced from Pexels, photo 9385084. Replace it with a project-owned or otherwise approved image before public launch if its representation does not match the audience or brand.
+
+## Supporting images
+
+The family-need section uses local, width-limited JPEGs from Pexels: [photo 39191613](https://www.pexels.com/photo/happy-senior-couple-posing-in-cozy-living-room-39191613/) and [photo 10117276](https://www.pexels.com/photo/elderly-woman-reading-book-on-sofa-and-petting-curled-up-greyhound-dog-10117276/). The “Un apoyo más” section uses [photo 32842420](https://www.pexels.com/photo/heartwarming-mother-daughter-embrace-on-sofa-32842420/). Supporting photos use a consistent 4:3 crop. Review all stock imagery for audience fit before public launch.
